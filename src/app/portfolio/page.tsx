@@ -11,7 +11,7 @@ const PortfolioPage = () => {
     <div
       className="m-4"
     >
-      { result.map((item, index) => (<p>{index+1}: {item}</p>)) }
+      { result.map((item, index) => (<p key={item}>{index+1}: {item}</p>)) }
       <p>陣列長度： { result.length }</p>
     </div>
   )
