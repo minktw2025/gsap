@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link"
+import { useState } from "react";
 
 const links = [
   { url: "/", title: "Home" },
@@ -8,6 +11,12 @@ const links = [
 ]
 
 const Navbar = () => {
+
+  const [open, setOpen ] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open)
+  }
 
   // note: 隨每個尺寸改變的<p>
 
@@ -28,16 +37,23 @@ const Navbar = () => {
       {/* Responsive Menu */}
       <div className="">
         {/* MENU BUTTON */}
-        <button className="flex flex-col justify-between relative items-center w-10 h-8 z-50">
+        <button 
+          className="flex flex-col justify-between relative items-center w-10 h-8 z-50"
+          onClick={ handleOpen}
+        >
           <div className="w-10 h-1 bg-white"></div>
           <div className="w-10 h-1 bg-white"></div>
           <div className="w-10 h-1 bg-white"></div>
         </button>
         {/* MENU LIST */}
       </div>
-      <div className="flex flex-col items-center justify-center gap-8 absolute top-0 left-0 w-screen h-screen text-4xl bg-zinc-700 text-white">
-        {links.map(link => <Link href={link.url} key="link.title">{link.title}</Link>)}
-      </div>
+      { open &&
+        <div className="flex flex-col items-center justify-center gap-8 absolute top-0 left-0 w-screen h-screen text-4xl bg-zinc-700 text-white">
+          {links.map(link => (
+            <Link href={link.url} key="link.title">{link.title}</Link>
+          ))}
+        </div>
+      }
     </div>
   )
 }
