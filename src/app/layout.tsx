@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="w-100vw h-screen max-h-screen bg-linear-to-b from-blue-100 to-red-100">
+        <div className="w-100vw h-screen max-h-screen bg-linear-to-b from-blue-200 to-red-100">
           <div className="h-24">
             <Navbar />
           </div>

@@ -15,7 +15,7 @@ const Navbar = () => {
   const [open, setOpen ] = useState(false);
 
   const handleOpen = () => {
-    setOpen(!open)
+    setOpen(prev => !prev)
   }
 
   // note: 隨每個尺寸改變的<p>
@@ -38,8 +38,8 @@ const Navbar = () => {
       <div className="">
         {/* MENU BUTTON */}
         <button 
-          className="flex flex-col justify-between relative items-center w-10 h-8 z-50"
-          onClick={ handleOpen}
+          className="flex flex-col justify-between relative items-center w-10 h-8 z-50 cursor-pointer"
+          onClick={ handleOpen }
         >
           <div className="w-10 h-1 bg-white"></div>
           <div className="w-10 h-1 bg-white"></div>
@@ -48,11 +48,15 @@ const Navbar = () => {
         {/* MENU LIST */}
       </div>
       { open &&
-        <div className="flex flex-col items-center justify-center gap-8 absolute top-0 left-0 w-screen h-screen text-4xl bg-zinc-700 text-white">
+        (<div className="flex flex-col items-center justify-center gap-8 absolute top-0 left-0 w-screen h-screen text-4xl bg-zinc-700 text-white">
           {links.map((link, index) => (
-            <Link href={link.url} key={index}>{link.title}</Link>
+            <Link 
+              href={link.url} 
+              key={index}
+              onClick={() => setOpen(false)}
+            >{link.title}</Link>
           ))}
-        </div>
+        </div>)
       }
     </div>
   )
