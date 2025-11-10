@@ -28,10 +28,10 @@ const Navbar = () => {
       <div>
         <Link 
           href="/" 
-          className="flex items-center justify-center bg-zinc-700 pl-1 py-1 text-sm font-semibold rounded-md"
+          className="flex items-center justify-center bg-zinc-700 px-1 py-1 text-sm font-semibold rounded-md"
         >
           <span className="text-white">Mink</span>
-          <span className="flex items-center justify-center w-12 h-8 px-1 bg-white rounded">.dev</span>
+          <span className="flex items-center justify-center w-10 ml-1 h-8 bg-white rounded">.dev</span>
         </Link>
       </div>
       {/* Responsive Menu */}
@@ -49,8 +49,8 @@ const Navbar = () => {
       </div>
       { open &&
         <div className="flex flex-col items-center justify-center gap-8 absolute top-0 left-0 w-screen h-screen text-4xl bg-zinc-700 text-white">
-          {links.map(link => (
-            <Link href={link.url} key="link.title">{link.title}</Link>
+          {links.map((link, index) => (
+            <Link href={link.url} key={index}>{link.title}</Link>
           ))}
         </div>
       }
