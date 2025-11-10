@@ -31,7 +31,7 @@ const Navbar = () => {
           className="flex items-center justify-center bg-zinc-700 px-1 py-1 text-sm font-semibold rounded-md"
         >
           <span className="text-white">Mink</span>
-          <span className="flex items-center justify-center w-10 ml-1 h-8 bg-white rounded">.dev</span>
+          <span className="flex items-center justify-center w-10 ml-1 h-8 bg-white text-zinc-700 rounded">.dev</span>
         </Link>
       </div>
       {/* Responsive Menu */}
