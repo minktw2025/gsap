@@ -24,6 +24,14 @@ const Navbar = () => {
     <div
       className="flex items-center justify-between h-full px-4 sm:px-8 md-px-12 lg:px-20 xl:px-48"
     >
+      {/* RESONSIVE MENU */}
+      <div className="hidden md:flex items-center justify-center w-full h-full">
+        { links.map((link, index) =>
+          <Link href={ link.url } key={ index }>
+            { link.title }
+          </Link> 
+        ) }
+      </div>
       {/* LOGO */}
       <div>
         <Link 
@@ -34,7 +42,7 @@ const Navbar = () => {
           <span className="flex items-center justify-center w-10 ml-1 h-8 bg-white text-zinc-700 rounded">.dev</span>
         </Link>
       </div>
-      {/* Responsive Menu */}
+      {/* RESONSIVE HAMBURGER MENU */}
       <div className="">
         {/* MENU BUTTON */}
         <button 
