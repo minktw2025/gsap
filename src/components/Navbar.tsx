@@ -25,15 +25,22 @@ const Navbar = () => {
       className="flex items-center justify-between h-full px-4 sm:px-8 md-px-12 lg:px-20 xl:px-48"
     >
       {/* RESONSIVE MENU */}
-      <div className="hidden md:flex items-center justify-center w-full h-full">
+      <div className="hidden md:flex items-center justify-start flex-1 gap-2">
         { links.map((link, index) =>
-          <Link href={ link.url } key={ index }>
+          <Link 
+            href={ link.url } 
+            key={ index }
+            className="md:relative flex items-center justify-center w-20 h-12 border-2 border-zinc-700 rounded-lg"
+          >
             { link.title }
           </Link> 
         ) }
       </div>
       {/* LOGO */}
-      <div>
+      <div className="
+            flex-1 flex items-center justify-center md:static absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0
+
+      ">
         <Link 
           href="/" 
           className="flex items-center justify-center bg-zinc-700 px-1 py-1 text-sm font-semibold rounded-md"
@@ -43,7 +50,7 @@ const Navbar = () => {
         </Link>
       </div>
       {/* RESONSIVE HAMBURGER MENU */}
-      <div className="">
+      <div className="md:hidden flex items-center justify-end flex-1">
         {/* MENU BUTTON */}
         <button 
           className="flex flex-col justify-between relative items-center w-10 h-8 z-50 cursor-pointer"
