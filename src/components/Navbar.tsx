@@ -2,12 +2,22 @@
 
 import Link from "next/link"
 import { useState } from "react";
+import Image from "next/image";
 
 const links = [
   { url: "/", title: "Home" },
   { url: "/about", title: "About" },
   { url: "/portfolio", title: "Portfolio" },
   { url: "/contact", title: "Contact" },
+]
+
+const socialLinks = [
+  { url: "https://www.github.com", png: "/github.png", title: "github" },
+  { url: "https://www.dribbble.com/", png: "/dribbble.png", title: "dribbble" },
+  { url: "https://www.instagram.com", png: "/instagram.png", title: "instagram" },
+  { url: "https://www.facebook.com", png: "/facebook.png", title: "facebook" },
+  { url: "https://www.pinterest.com", png: "/pinterest.png", title: "pinterest" },
+  { url: "https://www.linkedin.com", png: "/linkedin.png", title: "linkedin" },
 ]
 
 const Navbar = () => {
@@ -49,6 +59,14 @@ const Navbar = () => {
           <span className="flex items-center justify-center w-10 ml-1 h-8 bg-white text-zinc-700 rounded">.dev</span>
         </Link>
       </div>
+      {/* SOCIAL MEDIA LINKS */}
+      <div className="hidden flex-1 md:flex gap-2 justify-end">
+        {socialLinks.map((link, index) => (
+          <Link href={link.url} key={index}>
+            <Image src={link.png} height={24} width={24} alt={link.title} />
+          </Link>
+        ))}
+      </div>
       {/* RESONSIVE HAMBURGER MENU */}
       <div className="md:hidden flex items-center justify-end flex-1">
         {/* MENU BUTTON */}
@@ -63,7 +81,7 @@ const Navbar = () => {
         {/* MENU LIST */}
       </div>
       { open &&
-        (<div className="flex flex-col items-center justify-center gap-8 absolute top-0 left-0 w-screen h-screen text-4xl bg-zinc-700 text-white">
+        (<div className="flex flex-col items-center justify-center gap-8 absolute top-0 left-0 w-screen h-screen text-4xl bg-zinc-700 text-white z-40">
           {links.map((link, index) => (
             <Link 
               href={link.url} 
