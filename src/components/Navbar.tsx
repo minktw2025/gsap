@@ -40,7 +40,7 @@ const Navbar = () => {
           <Link 
             href={ link.url } 
             key={ index }
-            className="md:relative flex items-center justify-center w-20 h-12 border-2 border-zinc-700 rounded-lg"
+            className="md:relative flex items-center justify-center w-20 h-12 text-[#f0f0f0] bg-cyan-400 rounded-lg"
           >
             { link.title }
           </Link> 
